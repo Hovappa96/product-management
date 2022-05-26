@@ -201,7 +201,7 @@ const getProfile = async function (req, res) {
     try {
         let userId = req.params.userId
 
-        let findProfile = await userModel.findOne({ _id: userId })
+        let findProfile = await userModel.findOne({ _id: userId, isDeleted: false })
         if (!findProfile) {
             return res.status(404).send({ status: false, msg: "UserId Not Found" })
         }
