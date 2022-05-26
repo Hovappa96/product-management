@@ -4,11 +4,11 @@ const isValidobjectId = (objectId) => {
     return mongoose.Types.ObjectId.isValid(objectId)
 }
 
-isValidReqBody = function (requestBody) {
+const isValidReqBody = function (requestBody) {
     return Object.keys(requestBody).length > 0
 }
 
-isValid = function (value) {
+const isValid = function (value) {
     if (typeof value === "undefined" || value === null) {
         return false
     }
@@ -38,10 +38,4 @@ const isStatus = (status) => {
 }
 
 
-module.exports.isValidReqBody = isValidReqBody
-module.exports.isValid = isValid
-module.exports.isValidobjectId = isValidobjectId
-module.exports.isValidSizes = isValidSizes
-module.exports.isINR = isINR
-module.exports.isRs = isRs
-module.exports.isStatus = isStatus
+module.exports = { isValidobjectId, isValidReqBody, isValid, isValidSizes, isINR, isRs, isStatus }
